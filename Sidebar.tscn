@@ -1,0 +1,542 @@
+[gd_scene load_steps=3 format=3 uid="uid://odco0e85mi8k"]
+
+[ext_resource type="Texture2D" uid="uid://cnvcsq5mvc3ux" path="res://Labels/Menu.png" id="1_j17i8"]
+[ext_resource type="Theme" uid="uid://cxyvdqfu2qibw" path="res://Labels/Label Theme.tres" id="2_kmtht"]
+
+[node name="Sidebar" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(-363, 654)
+scale = Vector2(1.19585, 1.308)
+texture = ExtResource("1_j17i8")
+
+[node name="Descriptions" type="Node2D" parent="."]
+position = Vector2(0, 12)
+
+[node name="Systems" type="Node2D" parent="Descriptions"]
+
+[node name="Sol" type="RichTextLabel" parent="Descriptions/Systems"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "System: Sol
+Coordinates: 
+	311(756,326,006)
+Population: 
+	18 Billion
+Colonies: 3
+	•Earth
+	•Moon
+	•Mars"
+tab_size = 2
+
+[node name="Miciri" type="RichTextLabel" parent="Descriptions/Systems"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "System: Miciri
+Coordinates: 
+	120(280,735,-034)"
+tab_size = 2
+
+[node name="Kaukai" type="RichTextLabel" parent="Descriptions/Systems"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "System: Kaukai
+Coordinates: 
+	330(880,248,012)"
+tab_size = 2
+
+[node name="Utoths" type="RichTextLabel" parent="Descriptions/Systems"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "System: Utoths
+Coordinates: 
+	211(487,176,-032)"
+tab_size = 2
+
+[node name="Shin\'ta Homeworld" type="RichTextLabel" parent="Descriptions/Systems"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+bbcode_enabled = true
+text = "System:
+	Shin'ta Homeworld
+Coordinates: 
+	401(114,357,028)"
+tab_size = 2
+
+[node name="Vorma Homeworld" type="RichTextLabel" parent="Descriptions/Systems"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+bbcode_enabled = true
+text = "System:
+	Vorma Homeworld
+Coordinates: 
+	240(150,601,-007)"
+tab_size = 2
+
+[node name="Pulsars" type="Node2D" parent="Descriptions"]
+
+[node name="XP 101" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 101
+Coordinates: 
+	101(725,336,087)
+Period: "
+tab_size = 2
+
+[node name="XP 113" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 113
+Coordinates: 
+	113(222, 259, -029)
+Period: "
+tab_size = 2
+
+[node name="XP 124" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 124
+Coordinates: 
+	124(632,906,-015)
+Period: "
+tab_size = 2
+
+[node name="XP 132" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 132
+Coordinates: 
+	132(435,746,-013)
+Period: "
+tab_size = 2
+
+[node name="XP 140" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 140
+Coordinates: 
+	140(792,761,037)
+Period: "
+tab_size = 2
+
+[node name="XP 200" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 200
+Coordinates: 
+	200(207,590,-264)
+Period: "
+tab_size = 2
+
+[node name="XP 203" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 203
+Coordinates: 
+	203(316,699,007)
+Period: "
+tab_size = 2
+
+[node name="XP 221" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 221
+Coordinates: 
+	221(787,165,048)
+Period: "
+tab_size = 2
+
+[node name="XP 233" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 233
+Coordinates: 
+	233(601,424,039)
+Period: "
+tab_size = 2
+
+[node name="XP 312" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 312
+Coordinates: 
+	312(481,684,-018)
+Period: "
+tab_size = 2
+
+[node name="XP 315" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 315
+Coordinates: 
+	315(067,181,-035)
+Period: "
+tab_size = 2
+
+[node name="XP 320" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 320
+Coordinates: 
+	320(538,575,002)
+Period: "
+tab_size = 2
+
+[node name="XP 333" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 333
+Coordinates: 
+	333(585,285,013)
+Period: "
+tab_size = 2
+
+[node name="XP 341" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 341
+Coordinates: 
+	341(891,191,-014)
+Period: "
+tab_size = 2
+
+[node name="XP 414" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 414
+Coordinates: 
+	414(202,647,-022)
+Period: "
+tab_size = 2
+
+[node name="XP 421" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 421
+Coordinates: 
+	421(569,715,007)
+Period: "
+tab_size = 2
+
+[node name="XP 422" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 422
+Coordinates: 
+	422(300,564,-037)
+Period: "
+tab_size = 2
+
+[node name="XP 430" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 430
+Coordinates: 
+	430(797,347,082)
+Period: "
+tab_size = 2
+
+[node name="XP 435" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 435
+Coordinates: 
+	435(259,746, -052)
+Period: "
+tab_size = 2
+
+[node name="XP 441" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 441
+Coordinates: 
+	441(238,544,078)
+Period: "
+tab_size = 2
+
+[node name="XP 452" type="RichTextLabel" parent="Descriptions/Pulsars"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -654.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 997.0
+grow_horizontal = 0
+theme = ExtResource("2_kmtht")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 30
+text = "X-Ray Pulsar 452
+Coordinates: 
+	452(367,766,-042)
+Period: "
+tab_size = 2

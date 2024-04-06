@@ -1,0 +1,16 @@
+Node2D
+TextureButton
+Control
+ColorRect
+Button
+HBoxContainer
+RichTextLabel
+Sprite2D
+Node
+CanvasLayer
+Container
+Label
+ParallaxBackground
+ParallaxLayer
+Panel
+Camera2D

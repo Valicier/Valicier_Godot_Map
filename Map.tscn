@@ -1,0 +1,824 @@
+[gd_scene load_steps=25 format=3 uid="uid://bpyabjq5ul1ew"]
+
+[ext_resource type="Script" path="res://Map.gd" id="1_fb2ml"]
+[ext_resource type="Texture2D" uid="uid://cj3gk4lnspkny" path="res://00 Map.png" id="2_f630u"]
+[ext_resource type="PackedScene" uid="uid://b7o5lmrq4plqx" path="res://camera.tscn" id="2_g1hl3"]
+[ext_resource type="Texture2D" uid="uid://blgvr4w07nt5a" path="res://02 Map Thick.png" id="3_iwhwq"]
+[ext_resource type="Texture2D" uid="uid://dxsu1fl01kaew" path="res://01 Territory Overlay.png" id="4_1hobp"]
+[ext_resource type="PackedScene" uid="uid://odco0e85mi8k" path="res://Sidebar.tscn" id="4_exbsm"]
+[ext_resource type="FontFile" uid="uid://cogem6uplwbh8" path="res://Labels/larabiefont rg.otf" id="5_2i16l"]
+[ext_resource type="Script" path="res://GUI.gd" id="6_mykxk"]
+[ext_resource type="Theme" uid="uid://cx8d0cnaslndr" path="res://Labels/Button Text.tres" id="7_ujd2x"]
+[ext_resource type="Script" path="res://Systems.gd" id="8_a2mh3"]
+[ext_resource type="StyleBox" uid="uid://c5qgtb7hu5ny" path="res://Labels/Button Normal.tres" id="8_ul333"]
+[ext_resource type="StyleBox" uid="uid://cng1msbe7q3wm" path="res://Labels/Button Pressed.tres" id="9_m4k3m"]
+[ext_resource type="Script" path="res://Pulsars.gd" id="12_v4er2"]
+[ext_resource type="Texture2D" uid="uid://blcxrtg2hvrh8" path="res://Pulsar.png" id="13_ltyoe"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_b6x3d"]
+action = &"Escape"
+
+[sub_resource type="Shortcut" id="Shortcut_ia88e"]
+events = [SubResource("InputEventAction_b6x3d")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6flse"]
+action = &"System Visibility"
+
+[sub_resource type="Shortcut" id="Shortcut_1otik"]
+events = [SubResource("InputEventAction_6flse")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_o27ew"]
+action = &"Territories"
+
+[sub_resource type="Shortcut" id="Shortcut_pkxs3"]
+events = [SubResource("InputEventAction_o27ew")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ww7pi"]
+action = &"Pulsars"
+
+[sub_resource type="Shortcut" id="Shortcut_cd31w"]
+events = [SubResource("InputEventAction_ww7pi")]
+
+[sub_resource type="Theme" id="Theme_ogbri"]
+default_font = ExtResource("5_2i16l")
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_ratqk"]
+default_font = ExtResource("5_2i16l")
+default_font_size = 50
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_fb2ml")
+
+[node name="Map" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1200, 1200)
+texture = ExtResource("2_f630u")
+
+[node name="MapThick" type="Sprite2D" parent="."]
+position = Vector2(1200, 1200)
+texture = ExtResource("3_iwhwq")
+
+[node name="Territory Overlay" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1200, 1200)
+texture = ExtResource("4_1hobp")
+
+[node name="Camera" parent="." instance=ExtResource("2_g1hl3")]
+offset = Vector2(1200, 1200)
+limit_left = -2133
+limit_right = 2133
+editor_draw_limits = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sidebar" parent="CanvasLayer" instance=ExtResource("4_exbsm")]
+visible = false
+
+[node name="GUI" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 2400.0
+offset_bottom = 51.0
+scale = Vector2(1.25, 1.25)
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = -1
+script = ExtResource("6_mykxk")
+
+[node name="Quit" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 2
+theme = ExtResource("7_ujd2x")
+theme_override_styles/normal = ExtResource("8_ul333")
+shortcut = SubResource("Shortcut_ia88e")
+shortcut_in_tooltip = false
+text = "Quit"
+
+[node name="System Visibility" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 2
+theme = ExtResource("7_ujd2x")
+theme_override_styles/normal = ExtResource("8_ul333")
+theme_override_styles/pressed = ExtResource("9_m4k3m")
+toggle_mode = true
+shortcut = SubResource("Shortcut_1otik")
+shortcut_in_tooltip = false
+text = "Hide Systems"
+
+[node name="Territories" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 2
+theme = ExtResource("7_ujd2x")
+theme_override_styles/normal = ExtResource("8_ul333")
+theme_override_styles/pressed = ExtResource("9_m4k3m")
+toggle_mode = true
+shortcut = SubResource("Shortcut_pkxs3")
+shortcut_in_tooltip = false
+text = "Show Territories"
+
+[node name="Pulsars" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 2
+theme = ExtResource("7_ujd2x")
+theme_override_styles/normal = ExtResource("8_ul333")
+theme_override_styles/pressed = ExtResource("9_m4k3m")
+toggle_mode = true
+shortcut = SubResource("Shortcut_cd31w")
+shortcut_in_tooltip = false
+text = "Show Pulsars"
+
+[node name="Systems" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 2400.0
+offset_bottom = 2400.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_a2mh3")
+
+[node name="Sol" type="ColorRect" parent="Systems"]
+layout_mode = 0
+offset_left = 1538.0
+offset_top = 1537.0
+offset_right = 1539.0
+offset_bottom = 1538.0
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(1, 1, 0, 1)
+
+[node name="Sol" type="TextureButton" parent="Systems/Sol"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.500122
+offset_right = 0.5
+offset_bottom = 0.499878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Miciri" type="ColorRect" parent="Systems"]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 704.0
+offset_right = 1036.0
+offset_bottom = 705.0
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(1, 0.423529, 0, 1)
+
+[node name="Miciri" type="TextureButton" parent="Systems/Miciri"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.500122
+offset_right = 0.5
+offset_bottom = 0.499878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Kaukai" type="ColorRect" parent="Systems"]
+layout_mode = 0
+offset_left = 1948.0
+offset_top = 1247.0
+offset_right = 1949.0
+offset_bottom = 1248.0
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(0.996078, 0.113725, 0.0156863, 1)
+
+[node name="Kaukai" type="TextureButton" parent="Systems/Kaukai"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.500122
+offset_right = 0.5
+offset_bottom = 0.499878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Utoths" type="ColorRect" parent="Systems"]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 1426.0
+offset_right = 913.0
+offset_bottom = 1427.0
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(0.839216, 0.972549, 0.964706, 1)
+
+[node name="Utoths" type="TextureButton" parent="Systems/Utoths"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.500122
+offset_right = 0.5
+offset_bottom = 0.499878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shin\'ta Homeworld" type="ColorRect" parent="Systems"]
+layout_mode = 0
+offset_left = 1396.0
+offset_top = 910.0
+offset_right = 1397.0
+offset_bottom = 911.0
+scale = Vector2(1, 0.945096)
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(0.909804, 1, 0.105882, 1)
+
+[node name="Shin\'ta Homeworld" type="TextureButton" parent="Systems/Shin\'ta Homeworld"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.500122
+offset_right = 0.5
+offset_bottom = 0.499878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vorma Homeworld" type="ColorRect" parent="Systems"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 1315.0
+offset_right = 399.0
+offset_bottom = 1316.0
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(0.909804, 0.156863, 0.105882, 1)
+
+[node name="Vorma Homeworld" type="TextureButton" parent="Systems/Vorma Homeworld"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.500122
+offset_right = 0.5
+offset_bottom = 0.499878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pulsars" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_v4er2")
+
+[node name="XP 101" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1059, 941)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 101" type="TextureButton" parent="Pulsars/XP 101"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 113" type="Sprite2D" parent="Pulsars"]
+position = Vector2(963, 570)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 113" type="TextureButton" parent="Pulsars/XP 113"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 124" type="Sprite2D" parent="Pulsars"]
+position = Vector2(691, 252)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 124" type="TextureButton" parent="Pulsars/XP 124"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 132" type="Sprite2D" parent="Pulsars"]
+position = Vector2(536, 862)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 132" type="TextureButton" parent="Pulsars/XP 132"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 140" type="Sprite2D" parent="Pulsars"]
+position = Vector2(274, 1052)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 140" type="TextureButton" parent="Pulsars/XP 140"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 200" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1159, 1313)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 200" type="TextureButton" parent="Pulsars/XP 200"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 203" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1138, 1913)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 203" type="TextureButton" parent="Pulsars/XP 203"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 221" type="Sprite2D" parent="Pulsars"]
+position = Vector2(661, 1424)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 221" type="TextureButton" parent="Pulsars/XP 221"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 233" type="Sprite2D" parent="Pulsars"]
+position = Vector2(504, 1860)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 233" type="TextureButton" parent="Pulsars/XP 233"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="XP 312" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1485, 1717)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 312" type="TextureButton" parent="Pulsars/XP 312"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 315" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1405, 2199)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 315" type="TextureButton" parent="Pulsars/XP 315"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 320" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1689, 1310)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 320" type="TextureButton" parent="Pulsars/XP 320"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 333" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1891, 1833)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 333" type="TextureButton" parent="Pulsars/XP 333"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 341" type="Sprite2D" parent="Pulsars"]
+position = Vector2(2143, 1429)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 341" type="TextureButton" parent="Pulsars/XP 341"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 414" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1238, 302)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 414" type="TextureButton" parent="Pulsars/XP 414"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 421" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1502, 868)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 421" type="TextureButton" parent="Pulsars/XP 421"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 422" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1643, 704)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 422" type="TextureButton" parent="Pulsars/XP 422"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 430" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1739, 1132)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 430" type="TextureButton" parent="Pulsars/XP 430"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 435" type="Sprite2D" parent="Pulsars"]
+position = Vector2(1635, 90)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 435" type="TextureButton" parent="Pulsars/XP 435"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 441" type="Sprite2D" parent="Pulsars"]
+position = Vector2(2017, 901)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 441" type="TextureButton" parent="Pulsars/XP 441"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="XP 452" type="Sprite2D" parent="Pulsars"]
+position = Vector2(2235, 665)
+texture = ExtResource("13_ltyoe")
+
+[node name="XP 452" type="TextureButton" parent="Pulsars/XP 452"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -426.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltips" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="System Tooltip" type="RichTextLabel" parent="Tooltips"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -94.0
+offset_right = 563.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = SubResource("Theme_ogbri")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Empty[/center]"
+
+[node name="Button Tooltip" type="RichTextLabel" parent="Tooltips"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -94.0
+offset_right = 563.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = SubResource("Theme_ratqk")
+theme_override_colors/default_color = Color(0.980392, 0.721569, 0.0392157, 1)
+bbcode_enabled = true
+text = "[center]Empty[/center]"
+
+[connection signal="mouse_entered" from="CanvasLayer/GUI/Quit" to="CanvasLayer/GUI" method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/GUI/Quit" to="CanvasLayer/GUI" method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/GUI/Quit" to="CanvasLayer/GUI" method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/GUI/System Visibility" to="CanvasLayer/GUI" method="_on_system_visibility_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/GUI/System Visibility" to="CanvasLayer/GUI" method="_on_system_visibility_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/GUI/System Visibility" to="CanvasLayer/GUI" method="_on_system_visibility_toggled"]
+[connection signal="mouse_entered" from="CanvasLayer/GUI/Territories" to="CanvasLayer/GUI" method="_on_territories_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/GUI/Territories" to="CanvasLayer/GUI" method="_on_territories_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/GUI/Territories" to="CanvasLayer/GUI" method="_on_territories_toggled"]
+[connection signal="mouse_entered" from="CanvasLayer/GUI/Pulsars" to="CanvasLayer/GUI" method="_on_pulsars_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/GUI/Pulsars" to="CanvasLayer/GUI" method="_on_pulsars_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/GUI/Pulsars" to="CanvasLayer/GUI" method="_on_pulsars_toggled"]
+[connection signal="mouse_entered" from="Systems/Sol/Sol" to="Systems" method="_on_sol_mouse_entered"]
+[connection signal="mouse_exited" from="Systems/Sol/Sol" to="Systems" method="_on_sol_mouse_exited"]
+[connection signal="pressed" from="Systems/Sol/Sol" to="Systems" method="_on_sol_pressed"]
+[connection signal="mouse_entered" from="Systems/Miciri/Miciri" to="Systems" method="_on_miciri_mouse_entered"]
+[connection signal="mouse_exited" from="Systems/Miciri/Miciri" to="Systems" method="_on_miciri_mouse_exited"]
+[connection signal="pressed" from="Systems/Miciri/Miciri" to="Systems" method="_on_miciri_pressed"]
+[connection signal="mouse_entered" from="Systems/Kaukai/Kaukai" to="Systems" method="_on_kaukai_mouse_entered"]
+[connection signal="mouse_exited" from="Systems/Kaukai/Kaukai" to="Systems" method="_on_kaukai_mouse_exited"]
+[connection signal="pressed" from="Systems/Kaukai/Kaukai" to="Systems" method="_on_kaukai_pressed"]
+[connection signal="mouse_entered" from="Systems/Utoths/Utoths" to="Systems" method="_on_utoths_mouse_entered"]
+[connection signal="mouse_exited" from="Systems/Utoths/Utoths" to="Systems" method="_on_utoths_mouse_exited"]
+[connection signal="pressed" from="Systems/Utoths/Utoths" to="Systems" method="_on_utoths_pressed"]
+[connection signal="mouse_entered" from="Systems/Shin'ta Homeworld/Shin'ta Homeworld" to="Systems" method="_on_shinta_homeworld_mouse_entered"]
+[connection signal="mouse_exited" from="Systems/Shin'ta Homeworld/Shin'ta Homeworld" to="Systems" method="_on_shinta_homeworld_mouse_exited"]
+[connection signal="pressed" from="Systems/Shin'ta Homeworld/Shin'ta Homeworld" to="Systems" method="_on_shinta_homeworld_pressed"]
+[connection signal="mouse_entered" from="Systems/Vorma Homeworld/Vorma Homeworld" to="Systems" method="_on_vorma_homeworld_mouse_entered"]
+[connection signal="mouse_exited" from="Systems/Vorma Homeworld/Vorma Homeworld" to="Systems" method="_on_vorma_homeworld_mouse_exited"]
+[connection signal="pressed" from="Systems/Vorma Homeworld/Vorma Homeworld" to="Systems" method="_on_vorma_homeworld_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 101/XP 101" to="Pulsars" method="_on_xp_101_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 101/XP 101" to="Pulsars" method="_on_xp_101_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 101/XP 101" to="Pulsars" method="_on_xp_101_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 113/XP 113" to="Pulsars" method="_on_xp_113_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 113/XP 113" to="Pulsars" method="_on_xp_113_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 113/XP 113" to="Pulsars" method="_on_xp_113_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 124/XP 124" to="Pulsars" method="_on_xp_124_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 124/XP 124" to="Pulsars" method="_on_xp_124_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 124/XP 124" to="Pulsars" method="_on_xp_124_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 132/XP 132" to="Pulsars" method="_on_xp_132_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 132/XP 132" to="Pulsars" method="_on_xp_132_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 132/XP 132" to="Pulsars" method="_on_xp_132_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 140/XP 140" to="Pulsars" method="_on_xp_140_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 140/XP 140" to="Pulsars" method="_on_xp_140_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 140/XP 140" to="Pulsars" method="_on_xp_140_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 200/XP 200" to="Pulsars" method="_on_xp_200_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 200/XP 200" to="Pulsars" method="_on_xp_200_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 200/XP 200" to="Pulsars" method="_on_xp_200_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 203/XP 203" to="Pulsars" method="_on_xp_203_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 203/XP 203" to="Pulsars" method="_on_xp_203_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 203/XP 203" to="Pulsars" method="_on_xp_203_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 221/XP 221" to="Pulsars" method="_on_xp_221_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 221/XP 221" to="Pulsars" method="_on_xp_221_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 221/XP 221" to="Pulsars" method="_on_xp_221_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 233/XP 233" to="Pulsars" method="_on_xp_233_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 233/XP 233" to="Pulsars" method="_on_xp_233_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 233/XP 233" to="Pulsars" method="_on_xp_233_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 312/XP 312" to="Pulsars" method="_on_xp_312_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 312/XP 312" to="Pulsars" method="_on_xp_312_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 312/XP 312" to="Pulsars" method="_on_xp_312_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 315/XP 315" to="Pulsars" method="_on_xp_315_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 315/XP 315" to="Pulsars" method="_on_xp_315_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 315/XP 315" to="Pulsars" method="_on_xp_315_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 320/XP 320" to="Pulsars" method="_on_xp_320_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 320/XP 320" to="Pulsars" method="_on_xp_320_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 320/XP 320" to="Pulsars" method="_on_xp_320_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 333/XP 333" to="Pulsars" method="_on_xp_333_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 333/XP 333" to="Pulsars" method="_on_xp_333_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 333/XP 333" to="Pulsars" method="_on_xp_333_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 341/XP 341" to="Pulsars" method="_on_xp_341_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 341/XP 341" to="Pulsars" method="_on_xp_341_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 341/XP 341" to="Pulsars" method="_on_xp_341_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 414/XP 414" to="Pulsars" method="_on_xp_414_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 414/XP 414" to="Pulsars" method="_on_xp_414_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 414/XP 414" to="Pulsars" method="_on_xp_414_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 421/XP 421" to="Pulsars" method="_on_xp_421_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 421/XP 421" to="Pulsars" method="_on_xp_421_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 421/XP 421" to="Pulsars" method="_on_xp_421_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 422/XP 422" to="Pulsars" method="_on_xp_422_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 422/XP 422" to="Pulsars" method="_on_xp_422_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 422/XP 422" to="Pulsars" method="_on_xp_422_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 430/XP 430" to="Pulsars" method="_on_xp_430_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 430/XP 430" to="Pulsars" method="_on_xp_430_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 430/XP 430" to="Pulsars" method="_on_xp_430_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 435/XP 435" to="Pulsars" method="_on_xp_435_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 435/XP 435" to="Pulsars" method="_on_xp_435_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 435/XP 435" to="Pulsars" method="_on_xp_435_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 441/XP 441" to="Pulsars" method="_on_xp_441_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 441/XP 441" to="Pulsars" method="_on_xp_441_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 441/XP 441" to="Pulsars" method="_on_xp_441_pressed"]
+[connection signal="mouse_entered" from="Pulsars/XP 452/XP 452" to="Pulsars" method="_on_xp_452_mouse_entered"]
+[connection signal="mouse_exited" from="Pulsars/XP 452/XP 452" to="Pulsars" method="_on_xp_452_mouse_exited"]
+[connection signal="pressed" from="Pulsars/XP 452/XP 452" to="Pulsars" method="_on_xp_452_pressed"]

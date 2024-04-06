@@ -1,0 +1,30 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1712433034
+00 Map.png::CompressedTexture2D::5462727237923133938::1709831361::1712431478::1::::<><>::
+01 Territory Overlay.png::CompressedTexture2D::8812025305604603374::1709831393::1712431477::1::::<><>::
+02 Map Thick.png::CompressedTexture2D::3172191203922328528::1709842358::1712431478::1::::<><>::
+camera.gd::GDScript::-1::1712429899::0::1::::<>Camera2D<>::
+camera.tscn::PackedScene::4663206779491122155::1712431465::0::1::::<><>::res://camera.gd
+GATE Symbol 1.png::CompressedTexture2D::3384749363431011443::1694114984::1712431476::1::::<><>::
+GATE Symbol 2.png::CompressedTexture2D::7132521120836788895::1694206343::1712431476::1::::<><>::
+global.gd::GDScript::-1::1712431596::0::1::::<>Node<>::
+GUI.gd::GDScript::-1::1712431596::0::1::::<>HBoxContainer<>::
+icon.svg::CompressedTexture2D::6860084232143269381::1694014896::1712431099::1::::<><>::
+Map.gd::GDScript::-1::1712432589::0::1::::<>Node2D<>::
+Map.tscn::PackedScene::3488800688972200286::1712433006::0::1::::<><>::res://Map.gd<>uid://cj3gk4lnspkny::::res://00 Map.png<>uid://b7o5lmrq4plqx::::res://camera.tscn<>uid://blgvr4w07nt5a::::res://02 Map Thick.png<>uid://dxsu1fl01kaew::::res://01 Territory Overlay.png<>uid://odco0e85mi8k::::res://Sidebar.tscn<>uid://cogem6uplwbh8::::res://Labels/larabiefont rg.otf<>res://GUI.gd<>uid://cx8d0cnaslndr::::res://Labels/Button Text.tres<>res://Systems.gd<>uid://c5qgtb7hu5ny::::res://Labels/Button Normal.tres<>uid://cng1msbe7q3wm::::res://Labels/Button Pressed.tres<>res://Pulsars.gd<>uid://blcxrtg2hvrh8::::res://Pulsar.png
+Pulsar.png::CompressedTexture2D::3164054576999024075::1709853477::1712431476::1::::<><>::
+Pulsars.gd::GDScript::-1::1712431597::0::1::::<>Control<>::
+Sidebar.tscn::PackedScene::988984700097746540::1712431697::0::1::::<><>::uid://cnvcsq5mvc3ux
+Systems.gd::GDScript::-1::1712431597::0::1::::<>Control<>::
+test.tscn::PackedScene::7002133849967118903::1712432589::0::1::::<><>::
+::res://Assets/::1712431476
+::res://Code/::1712431465
+::res://Labels/::1712431123
+Button Normal.tres::StyleBoxFlat::203292207498117146::1712431123::0::1::::<><>::
+Button Pressed.tres::StyleBoxFlat::5699283619734042024::1712431123::0::1::::<><>::
+Button Text.tres::Theme::6455536157924500579::1712431123::0::1::::<><>::
+Label Theme.tres::Theme::6438011100431244104::1704761610::0::1::::<><>::uid://cogem6uplwbh8
+larabiefont rg.otf::FontFile::5768137402157978707::1694268845::1694268858::1::::<><>::
+Menu.png::CompressedTexture2D::5728802733082834063::1694093033::1694093457::1::::<><>::
+Sol Menu.png::CompressedTexture2D::7633233437299519657::1694092883::1694093463::1::::<><>::
+Test Label.png::CompressedTexture2D::3039278204431533710::1694046311::1694093471::1::::<><>::
