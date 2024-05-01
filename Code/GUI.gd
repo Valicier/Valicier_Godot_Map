@@ -7,7 +7,6 @@ func _process(delta):
 	# Move Tooltips with Mouse
 	if button_mouse_enter == true:
 		get_node("../../Tooltips/Button Tooltip").global_position = Vector2(get_node("../../").get_global_mouse_position().x - (get_node("../../Tooltips/Button Tooltip").get_size().x/cam_zoom.x)/2, get_node("../../").get_global_mouse_position().y + (get_node("../../Tooltips/Button Tooltip").get_size().y/cam_zoom.y)/2)
-		print(get_global_mouse_position().x)
 
 # Quit Map
 func _on_quit_mouse_entered():

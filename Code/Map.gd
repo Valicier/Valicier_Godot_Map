@@ -2,9 +2,11 @@ extends Node2D
 
 var syst_zoom = 20 #10 for Color Square
 var pulsar_base_zoom = 0.15
-@onready var cam_zoom = get_node("Camera").zoom
 
 func _process(delta):
+	# Update cam_zoom every fame
+	var cam_zoom = get_node("Camera").zoom
+	
 	# Scale Systems
 	for i in get_node("Systems").get_children():
 		if cam_zoom >= Vector2(1, 1):

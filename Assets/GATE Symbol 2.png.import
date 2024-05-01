@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bohulet75bg6v"
-path="res://.godot/imported/GATE Symbol 1.png-9e768e076f1c7bf71398206c51efa229.ctex"
+uid="uid://c8vbt0ng8jxkx"
+path="res://.godot/imported/GATE Symbol 2.png-b7489eb26b213eb7a2f02bd6f6e9d3cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GATE Symbol 1.png"
-dest_files=["res://.godot/imported/GATE Symbol 1.png-9e768e076f1c7bf71398206c51efa229.ctex"]
+source_file="res://Assets/GATE Symbol 2.png"
+dest_files=["res://.godot/imported/GATE Symbol 2.png-b7489eb26b213eb7a2f02bd6f6e9d3cc.ctex"]
 
 [params]
 

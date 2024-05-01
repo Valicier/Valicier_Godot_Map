@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blcxrtg2hvrh8"
-path="res://.godot/imported/Pulsar.png-c09a1c0eab47639751270fa0f9cba3f4.ctex"
+uid="uid://c40ct5keb7umn"
+path="res://.godot/imported/icon.svg-7bedc09c10b65b79e422bb4cacb8d716.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pulsar.png"
-dest_files=["res://.godot/imported/Pulsar.png-c09a1c0eab47639751270fa0f9cba3f4.ctex"]
+source_file="res://Code/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-7bedc09c10b65b79e422bb4cacb8d716.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

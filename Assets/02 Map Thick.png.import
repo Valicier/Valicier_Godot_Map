@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxsu1fl01kaew"
-path="res://.godot/imported/01 Territory Overlay.png-af89c2bbfc8b4fc2b9f5491064c7b183.ctex"
+uid="uid://blgvr4w07nt5a"
+path="res://.godot/imported/02 Map Thick.png-52f6c1a408b72b1a3198754cd90c64f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://01 Territory Overlay.png"
-dest_files=["res://.godot/imported/01 Territory Overlay.png-af89c2bbfc8b4fc2b9f5491064c7b183.ctex"]
+source_file="res://Assets/02 Map Thick.png"
+dest_files=["res://.godot/imported/02 Map Thick.png-52f6c1a408b72b1a3198754cd90c64f6.ctex"]
 
 [params]
 
