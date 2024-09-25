@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvj5dfhitu22v"]
+
+[ext_resource type="Texture2D" uid="uid://b2exterasfwoj" path="res://Assets/Black Hole.png" id="1_kdjx0"]
+[ext_resource type="Script" path="res://Code/new_black_hole.gd" id="2_50qrs"]
+
+[node name="New Black Hole" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(142, 142)
+texture_normal = ExtResource("1_kdjx0")
+script = ExtResource("2_50qrs")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://yrm1er0qgvnf"]
+
+[ext_resource type="Script" path="res://System Builder/planets/planet1.gd" id="1_o0okx"]
+[ext_resource type="FontFile" uid="uid://cogem6uplwbh8" path="res://Labels/larabiefont rg.otf" id="2_1jpl3"]
+[ext_resource type="PackedScene" uid="uid://mcrqnsuxoluj" path="res://System Builder/edit_screen.tscn" id="2_qdcgk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ohvpn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8adm"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(0.384314, 0.384314, 0.384314, 1)
+ao_light_affect = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_t2xhr"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_y8adm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktx1h"]
+disable_receive_shadows = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_8vdmc"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ktx1h")
+ring_segments = 3
+
+[node name="planet1" type="StaticBody3D"]
+script = ExtResource("1_o0okx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ohvpn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_t2xhr")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1)
+pixel_size = 0.02
+billboard = 1
+text = "TEMP TEXT"
+font = ExtResource("2_1jpl3")
+
+[node name="Orbit" type="MeshInstance3D" parent="."]
+top_level = true
+layers = 2
+cast_shadow = 0
+mesh = SubResource("TorusMesh_8vdmc")
+
+[node name="Edit Screen" parent="." instance=ExtResource("2_qdcgk")]
+visible = false
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

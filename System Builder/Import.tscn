@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0hlqp71fb0ug"]
+
+[ext_resource type="Script" path="res://System Builder/Import.gd" id="1_1x6jh"]
+[ext_resource type="Theme" uid="uid://cx8d0cnaslndr" path="res://Labels/Button Text.tres" id="2_mktq3"]
+[ext_resource type="Theme" uid="uid://bcxil0rsdixch" path="res://Labels/Builder Text Theme.tres" id="3_ywbtm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dpuc"]
+bg_color = Color(0.462745, 0.462745, 0.462745, 1)
+
+[node name="Import" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_1x6jh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -50.0
+offset_right = 125.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2dpuc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Close" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Close" type="Button" parent="PanelContainer/VBoxContainer/Close"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_mktq3")
+text = "X"
+
+[node name="Title" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ywbtm")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Import Seed"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Insert" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/Insert"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Insert"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_ywbtm")
+placeholder_text = "[Insert Seed]"
+alignment = 1
+expand_to_text_length = true
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/Insert"]
+layout_mode = 2
+
+[node name="Import" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Import" type="Button" parent="PanelContainer/VBoxContainer/Import"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_mktq3")
+text = "Import"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Close/Close" to="." method="_on_close_pressed"]
+[connection signal="gui_input" from="PanelContainer/VBoxContainer/Insert/LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Import/Import" to="." method="_on_import_pressed"]

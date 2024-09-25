@@ -1,29 +1,69 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1714328461
-::res://Assets/::1712434065
+::res://::1723763876
+export_presets.cfg::TextFile::-1::1715539190::0::1::::<><>::
+::res://Assets/::1712511962
 00 Map.png::CompressedTexture2D::5462727237923133938::1709831361::1712434065::1::::<><>::
 01 Territory Overlay.png::CompressedTexture2D::8812025305604603374::1709831393::1712434064::1::::<><>::
+02 Map No Line.png::CompressedTexture2D::9023298649608952716::1722440337::1722440346::1::::<><>::
 02 Map Thick.png::CompressedTexture2D::3172191203922328528::1709842358::1712434065::1::::<><>::
+Black Hole.png::CompressedTexture2D::4291207630233388357::1722525705::1722525706::1::::<><>::
+Custom Solar System Icon Thick.png::CompressedTexture2D::949720894432039352::1719591437::1719591440::1::::<><>::
+Custom Solar Systum Icon.png::CompressedTexture2D::3958922710960535457::1719591137::1719591139::1::::<><>::
+Gate Radius.png::CompressedTexture2D::3317561218785889698::1723131535::1723131536::1::::<><>::
 GATE Symbol 1.png::CompressedTexture2D::3384749363431011443::1694114984::1712434064::1::::<><>::
 GATE Symbol 2.png::CompressedTexture2D::7132521120836788895::1694206343::1712434064::1::::<><>::
 Pulsar.png::CompressedTexture2D::3164054576999024075::1709853477::1712434064::1::::<><>::
-::res://Code/::1714323561
-camera.gd::GDScript::-1::1712433783::0::1::::<>Camera2D<>::
+Rift.png::CompressedTexture2D::8749367496858453559::1722445225::1722445227::1::::<><>::
+solar-system-icon.png::CompressedTexture2D::7292320657075736157::1719589872::1719590236::1::::<><>::
+::res://Code/::1722470011
+camera.gd::GDScript::-1::1722528386::0::1::::<>Camera2D<>::
 camera.tscn::PackedScene::4663206779491122155::1712434082::0::1::::<><>::res://Code/camera.gd
-global.gd::GDScript::-1::1712431596::0::1::::<>Node<>::
-GUI.gd::GDScript::-1::1712433943::0::1::::<>HBoxContainer<>::
+gate_radius.tscn::PackedScene::8302507375057713237::1723230834::0::1::::<><>::uid://bnjb0pl4iatdq::::res://Assets/Gate Radius.png
+global.gd::GDScript::-1::1720466803::0::1::::<>Node<>::
+GUI.gd::GDScript::-1::1723135288::0::1::::<>HBoxContainer<>::
 icon.svg::CompressedTexture2D::6860084232143269381::1694014896::1712434082::1::::<><>::
-Map.gd::GDScript::-1::1714323561::0::1::::<>Node2D<>::
-Map.tscn::PackedScene::3488800688972200286::1714323561::0::1::::<><>::res://Code/Map.gd<>uid://cj3gk4lnspkny::::res://Assets/00 Map.png<>uid://b7o5lmrq4plqx::::res://Code/camera.tscn<>uid://blgvr4w07nt5a::::res://Assets/02 Map Thick.png<>uid://odco0e85mi8k::::res://Code/Sidebar.tscn<>uid://dxsu1fl01kaew::::res://Assets/01 Territory Overlay.png<>uid://cogem6uplwbh8::::res://Labels/larabiefont rg.otf<>res://Code/GUI.gd<>uid://cx8d0cnaslndr::::res://Labels/Button Text.tres<>res://Code/Systems.gd<>uid://c5qgtb7hu5ny::::res://Labels/Button Normal.tres<>uid://cng1msbe7q3wm::::res://Labels/Button Pressed.tres<>res://Code/Pulsars.gd<>uid://blcxrtg2hvrh8::::res://Assets/Pulsar.png
+Map.gd::GDScript::-1::1723227211::0::1::::<>Node2D<>::
+Map.tscn::PackedScene::3488800688972200286::1723231176::0::1::::<><>::res://Code/Map.gd<>uid://cj3gk4lnspkny::::res://Assets/00 Map.png<>uid://b7o5lmrq4plqx::::res://Code/camera.tscn<>uid://blgvr4w07nt5a::::res://Assets/02 Map Thick.png<>uid://odco0e85mi8k::::res://Code/Sidebar.tscn<>uid://dxsu1fl01kaew::::res://Assets/01 Territory Overlay.png<>uid://d1s7n7p46c72w::::res://Assets/02 Map No Line.png<>res://Code/GUI.gd<>uid://cx8d0cnaslndr::::res://Labels/Button Text.tres<>res://Code/Systems.gd<>uid://c5qgtb7hu5ny::::res://Labels/Button Normal.tres<>uid://cng1msbe7q3wm::::res://Labels/Button Pressed.tres<>uid://dbcs0jn611xbi::::res://Code/new_system.tscn<>res://Code/Pulsars.gd<>uid://blcxrtg2hvrh8::::res://Assets/Pulsar.png<>uid://c3evddbdp2khl::::res://Labels/Tooltip Theme.tres<>res://Code/Rifts.gd<>uid://c5nfq7ab7homd::::res://Code/new_rift.tscn<>res://Code/Other_Nodes.gd<>uid://cvj5dfhitu22v::::res://Code/new_black_hole.tscn
+new_black_hole.gd::GDScript::-1::1723136391::0::1::::<>TextureButton<>::
+new_black_hole.tscn::PackedScene::6267213624556202407::1723229177::0::1::::<><>::uid://b2exterasfwoj::::res://Assets/Black Hole.png<>res://Code/new_black_hole.gd
+new_rift.gd::GDScript::-1::1723136380::0::1::::<>TextureButton<>::
+new_rift.tscn::PackedScene::6905677425831955883::1723229152::0::1::::<><>::uid://dwwi2l4e3fuq6::::res://Assets/Rift.png<>res://Code/new_rift.gd
+new_system.gd::GDScript::-1::1723136313::0::1::::<>TextureButton<>::
+new_system.tscn::PackedScene::7234717695179773974::1723229152::0::1::::<><>::res://Code/new_system.gd
+Other_Nodes.gd::GDScript::-1::1722526241::0::1::::<>Control<>::
 Pulsars.gd::GDScript::-1::1712431597::0::1::::<>Control<>::
-Sidebar.tscn::PackedScene::988984700097746540::1712431697::0::1::::<><>::uid://cnvcsq5mvc3ux
-Systems.gd::GDScript::-1::1712431597::0::1::::<>Control<>::
-::res://Labels/::1714323562
-Button Normal.tres::StyleBoxFlat::203292207498117146::1714323562::0::1::::<><>::
-Button Pressed.tres::StyleBoxFlat::5699283619734042024::1714323562::0::1::::<><>::
-Button Text.tres::Theme::6455536157924500579::1714323562::0::1::::<><>::
-Label Theme.tres::Theme::6438011100431244104::1704761610::0::1::::<><>::uid://cogem6uplwbh8
+Rifts.gd::GDScript::-1::1722446001::0::1::::<>Control<>::
+Sidebar.gd::GDScript::-1::1719604894::0::1::::<>Control<>::
+Sidebar.tscn::PackedScene::988984700097746540::1722444041::0::1::::<><>::uid://cnvcsq5mvc3ux::::res://Labels/Menu.png<>res://Code/Sidebar.gd<>uid://cxyvdqfu2qibw::::res://Labels/Label Theme.tres<>uid://nsb08vajrjnc::::res://Assets/Custom Solar System Icon Thick.png
+Systems.gd::GDScript::-1::1722442406::0::1::::<>Control<>::
+::res://Labels/::1711923715
+Builder Text Theme.tres::Theme::2574785779155242647::1719605824::0::1::::<><>::uid://cogem6uplwbh8
+Button Normal.tres::StyleBoxFlat::203292207498117146::1723227212::0::1::::<><>::
+Button Pressed.tres::StyleBoxFlat::5699283619734042024::1723227212::0::1::::<><>::
+Button Text.tres::Theme::6455536157924500579::1723227212::0::1::::<><>::
+Label Theme.tres::Theme::6438011100431244104::1720463643::0::1::::<><>::uid://cogem6uplwbh8::::res://Labels/larabiefont rg.otf
 larabiefont rg.otf::FontFile::5768137402157978707::1694268845::1694268858::1::::<><>::
 Menu.png::CompressedTexture2D::5728802733082834063::1694093033::1694093457::1::::<><>::
 Sol Menu.png::CompressedTexture2D::7633233437299519657::1694092883::1694093463::1::::<><>::
 Test Label.png::CompressedTexture2D::3039278204431533710::1694046311::1694093471::1::::<><>::
+Tooltip Theme.tres::Theme::6747667073769437577::1723227212::0::1::::<><>::uid://cogem6uplwbh8::::res://Labels/larabiefont rg.otf
+::res://System Builder/::1719593446
+camera_3d.gd::GDScript::-1::1719598597::0::1::::<>Camera3D<>::
+camera_3d.tscn::PackedScene::663620819193211631::1719605667::0::1::::<><>::res://System Builder/camera_3d.gd
+camera_player.gd::GDScript::-1::1718050699::0::1::::<>CharacterBody3D<>::
+camera_player.tscn::PackedScene::5512368814316788883::1719596347::0::1::::<><>::res://System Builder/camera_player.gd
+edit_screen.gd::GDScript::-1::1720637027::0::1::::<>Control<>::
+edit_screen.tscn::PackedScene::847456352294055613::1720637030::0::1::::<><>::res://System Builder/edit_screen.gd<>uid://bcxil0rsdixch::::res://Labels/Builder Text Theme.tres
+Import.gd::GDScript::-1::1719434467::0::1::::<>Control<>::
+Import.tscn::PackedScene::8929131084403505706::1720459903::0::1::::<><>::res://System Builder/Import.gd<>uid://cx8d0cnaslndr::::res://Labels/Button Text.tres<>uid://bcxil0rsdixch::::res://Labels/Builder Text Theme.tres
+main.gd::GDScript::-1::1720633938::0::1::::<>Node3D<>::
+main.tscn::PackedScene::4071853399915873502::1722279242::0::1::::<><>::res://System Builder/main.gd<>uid://yrm1er0qgvnf::::res://System Builder/planets/planet1.tscn<>uid://jpp0db3kmtoh::::res://System Builder/camera_3d.tscn<>uid://paid0mkvs17s::::res://System Builder/sun.tscn<>uid://cxyvdqfu2qibw::::res://Labels/Label Theme.tres<>uid://c2vq8yp5abaut::::res://System Builder/startup_screen.tscn<>uid://cx8d0cnaslndr::::res://Labels/Button Text.tres<>uid://d0hlqp71fb0ug::::res://System Builder/Import.tscn<>uid://bcxil0rsdixch::::res://Labels/Builder Text Theme.tres
+startup_screen.gd::GDScript::-1::1719005049::0::1::::<>Control<>::
+startup_screen.tscn::PackedScene::6712323766627029187::1719606132::0::1::::<><>::res://System Builder/startup_screen.gd<>uid://bcxil0rsdixch
+sun.gd::GDScript::-1::1720628633::0::1::::<>StaticBody3D<>::
+sun.tscn::PackedScene::1053325079998894682::1720636942::0::1::::<><>::res://System Builder/sun.gd<>uid://nl0ynqb356eg::::res://System Builder/sun_edit_screen.tscn
+sun_edit_screen.gd::GDScript::-1::1720636907::0::1::::<>Control<>::
+sun_edit_screen.tscn::PackedScene::936724614066448090::1720636971::0::1::::<><>::res://System Builder/sun_edit_screen.gd<>uid://cxyvdqfu2qibw::::res://Labels/Label Theme.tres<>uid://bcxil0rsdixch::::res://Labels/Builder Text Theme.tres
+::res://System Builder/planets/::1719593446
+planet1.gd::GDScript::-1::1720628871::0::1::::<>StaticBody3D<>::
+planet1.tscn::PackedScene::1720401941199121443::1720636942::0::1::::<><>::res://System Builder/planets/planet1.gd<>uid://cogem6uplwbh8::::res://Labels/larabiefont rg.otf<>uid://mcrqnsuxoluj::::res://System Builder/edit_screen.tscn

@@ -3,3 +3,5 @@ res://Code/Map.gd
 res://Labels/Button Text.tres
 res://Labels/Button Normal.tres
 res://Labels/Button Pressed.tres
+res://Labels/Tooltip Theme.tres
+res://Code/gate_radius.tscn

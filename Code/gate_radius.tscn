@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqj2c3qe3030l"]
+
+[ext_resource type="Texture2D" uid="uid://bnjb0pl4iatdq" path="res://Assets/Gate Radius.png" id="1_7som4"]
+
+[node name="Gate Radius" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.156863)
+position = Vector2(225.5, 225.5)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("1_7som4")

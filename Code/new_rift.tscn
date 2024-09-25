@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nfq7ab7homd"]
+
+[ext_resource type="Texture2D" uid="uid://dwwi2l4e3fuq6" path="res://Assets/Rift.png" id="1_r3qo5"]
+[ext_resource type="Script" path="res://Code/new_rift.gd" id="2_3ato0"]
+
+[node name="New Rift" type="TextureButton"]
+offset_right = 312.0
+offset_bottom = 312.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(156, 156)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_r3qo5")
+script = ExtResource("2_3ato0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

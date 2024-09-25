@@ -1,0 +1,231 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2vq8yp5abaut"]
+
+[ext_resource type="Script" path="res://System Builder/startup_screen.gd" id="1_ae262"]
+[ext_resource type="Theme" uid="uid://bcxil0rsdixch" path="res://Labels/Builder Text Theme.tres" id="2_40kek"]
+[ext_resource type="Theme" uid="uid://cx8d0cnaslndr" path="res://Labels/Button Text.tres" id="3_kneww"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qlp7k"]
+color = Color(0, 0, 0, 0)
+
+[node name="Startup Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ae262")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -725.0
+offset_top = -400.0
+offset_right = 725.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -133.0
+offset_right = 196.5
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_40kek")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Welcome to Valicier's System Builder[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_qlp7k")
+
+[node name="Camera Controls" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]Camera Controls[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Forward" type="HBoxContainer" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+
+[node name="Effect" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Forward"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "Forward
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Key" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Forward"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]W"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Back" type="HBoxContainer" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+
+[node name="Effect" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Back"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "Back
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Key" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Back"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]S"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Left" type="HBoxContainer" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+
+[node name="Effect" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Left"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "Left"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Key" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Left"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]A"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Right" type="HBoxContainer" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+
+[node name="Effect" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Right"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "Right"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Key" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Right"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]D"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Up" type="HBoxContainer" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+
+[node name="Effect" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Up"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "Up"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Key" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Up"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]Q"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Down" type="HBoxContainer" parent="VBoxContainer/Camera Controls"]
+layout_mode = 2
+
+[node name="Effect" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Down"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "Down"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Key" type="RichTextLabel" parent="VBoxContainer/Camera Controls/Down"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]E"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]Right click to move camera[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_qlp7k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_40kek")
+bbcode_enabled = true
+text = "[center]Click a body to edit[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_qlp7k")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_kneww")
+theme_override_font_sizes/font_size = 50
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

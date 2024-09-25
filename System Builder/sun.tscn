@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://paid0mkvs17s"]
+
+[ext_resource type="Script" path="res://System Builder/sun.gd" id="1_6wher"]
+[ext_resource type="PackedScene" uid="uid://nl0ynqb356eg" path="res://System Builder/sun_edit_screen.tscn" id="2_vc6h2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_52rq6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0hns"]
+albedo_color = Color(1, 1, 0, 1)
+emission = Color(1, 0.729412, 0.219608, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_qlrng"]
+material = SubResource("StandardMaterial3D_t0hns")
+flip_faces = true
+
+[node name="sun" type="StaticBody3D"]
+script = ExtResource("1_6wher")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_52rq6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 2
+cast_shadow = 0
+mesh = SubResource("SphereMesh_qlrng")
+skeleton = NodePath("")
+
+[node name="Sun Light" type="OmniLight3D" parent="."]
+layers = 2
+light_color = Color(1, 0.729412, 0.219608, 1)
+light_energy = 4.0
+light_cull_mask = 4293918722
+omni_range = 1.0
+
+[node name="Sun Edit Screen" parent="." instance=ExtResource("2_vc6h2")]
+visible = false
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

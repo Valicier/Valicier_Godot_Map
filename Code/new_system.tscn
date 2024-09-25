@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbcs0jn611xbi"]
+
+[ext_resource type="Script" path="res://Code/new_system.gd" id="1_l5bru"]
+
+[sub_resource type="Gradient" id="Gradient_q637v"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.140845)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jpfoe"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_q637v")
+width = 1
+
+[node name="New Sytem" type="TextureButton"]
+offset_right = 1.0
+offset_bottom = 1.0
+scale = Vector2(20, 20)
+pivot_offset = Vector2(0.5, 0.5)
+texture_normal = SubResource("GradientTexture1D_jpfoe")
+script = ExtResource("1_l5bru")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

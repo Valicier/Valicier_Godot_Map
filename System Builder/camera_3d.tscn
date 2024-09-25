@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jpp0db3kmtoh"]
+
+[ext_resource type="Script" path="res://System Builder/camera_3d.gd" id="1_qec5q"]
+
+[node name="Camera3D" type="Camera3D"]
+script = ExtResource("1_qec5q")

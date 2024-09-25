@@ -1,0 +1,203 @@
+[gd_scene load_steps=17 format=3 uid="uid://byao3iftf4isc"]
+
+[ext_resource type="Script" path="res://System Builder/main.gd" id="1_23jmk"]
+[ext_resource type="PackedScene" uid="uid://yrm1er0qgvnf" path="res://System Builder/planets/planet1.tscn" id="2_iilha"]
+[ext_resource type="PackedScene" uid="uid://jpp0db3kmtoh" path="res://System Builder/camera_3d.tscn" id="3_fun5c"]
+[ext_resource type="PackedScene" uid="uid://paid0mkvs17s" path="res://System Builder/sun.tscn" id="4_jdfp7"]
+[ext_resource type="Theme" uid="uid://cxyvdqfu2qibw" path="res://Labels/Label Theme.tres" id="5_06qg5"]
+[ext_resource type="PackedScene" uid="uid://c2vq8yp5abaut" path="res://System Builder/startup_screen.tscn" id="5_hffhr"]
+[ext_resource type="Theme" uid="uid://cx8d0cnaslndr" path="res://Labels/Button Text.tres" id="6_2so40"]
+[ext_resource type="PackedScene" uid="uid://d0hlqp71fb0ug" path="res://System Builder/Import.tscn" id="6_g6kag"]
+[ext_resource type="Theme" uid="uid://bcxil0rsdixch" path="res://Labels/Builder Text Theme.tres" id="7_6l3o4"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_rj0gm"]
+action = &"Speed Down"
+
+[sub_resource type="Shortcut" id="Shortcut_l7lox"]
+events = [SubResource("InputEventAction_rj0gm")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_y2ukh"]
+action = &"Speed Up"
+
+[sub_resource type="Shortcut" id="Shortcut_63w0f"]
+events = [SubResource("InputEventAction_y2ukh")]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7w3ee"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="InputEventKey" id="InputEventKey_x452u"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_n7uiv"]
+events = [SubResource("InputEventKey_x452u")]
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_23jmk")
+
+[node name="Camera3D" parent="." instance=ExtResource("3_fun5c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+
+[node name="System Light" type="OmniLight3D" parent="."]
+visible = false
+light_energy = 16.0
+light_cull_mask = 4294967293
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 50.0
+
+[node name="Suns" type="Node3D" parent="."]
+
+[node name="sun" parent="Suns" instance=ExtResource("4_jdfp7")]
+
+[node name="Planets" type="Node3D" parent="."]
+
+[node name="planet1" parent="Planets" instance=ExtResource("2_iilha")]
+
+[node name="planet2" parent="Planets" instance=ExtResource("2_iilha")]
+orbital_distance = 194.48
+cust_name = "Planet 2"
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+layout_mode = 0
+offset_right = 315.0
+offset_bottom = 285.0
+
+[node name="Time Label" type="RichTextLabel" parent="GUI/VBoxContainer"]
+custom_minimum_size = Vector2(100, 23)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_06qg5")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "TEMP TEXT"
+fit_content = true
+
+[node name="Speed Control" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Speed Down" type="Button" parent="GUI/VBoxContainer/Speed Control"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+shortcut = SubResource("Shortcut_l7lox")
+text = "<<"
+
+[node name="Speed Edit" type="LineEdit" parent="GUI/VBoxContainer/Speed Control" groups=["line_edits"]]
+layout_mode = 2
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+text = "0"
+placeholder_text = "0"
+alignment = 1
+context_menu_enabled = false
+
+[node name="Speed Up" type="Button" parent="GUI/VBoxContainer/Speed Control"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+shortcut = SubResource("Shortcut_63w0f")
+text = ">>"
+
+[node name="HSeparator" type="HSeparator" parent="GUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_7w3ee")
+
+[node name="Add Planet" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/VBoxContainer/Add Planet"]
+layout_mode = 2
+theme = ExtResource("7_6l3o4")
+bbcode_enabled = true
+text = "Add Planet"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Add Planet" type="Button" parent="GUI/VBoxContainer/Add Planet"]
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="HSeparator2" type="HSeparator" parent="GUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_7w3ee")
+
+[node name="Camera Reset" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Camera Reset" type="Button" parent="GUI/VBoxContainer/Camera Reset"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+text = "Reset Camera"
+
+[node name="HSeparator3" type="HSeparator" parent="GUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_7w3ee")
+
+[node name="Seed" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Import" type="Button" parent="GUI/VBoxContainer/Seed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+text = "Import"
+
+[node name="Export" type="Button" parent="GUI/VBoxContainer/Seed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+text = "Export"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_2so40")
+theme_override_font_sizes/font_size = 50
+shortcut = SubResource("Shortcut_n7uiv")
+text = "Quit"
+
+[node name="Startup Screen" parent="." instance=ExtResource("5_hffhr")]
+
+[node name="Import" parent="." instance=ExtResource("6_g6kag")]
+visible = false
+
+[connection signal="pressed" from="GUI/VBoxContainer/Speed Control/Speed Down" to="." method="_on_speed_down_pressed"]
+[connection signal="gui_input" from="GUI/VBoxContainer/Speed Control/Speed Edit" to="." method="_on_speed_edit_gui_input"]
+[connection signal="pressed" from="GUI/VBoxContainer/Speed Control/Speed Up" to="." method="_on_speed_up_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/Add Planet/Add Planet" to="." method="_on_add_planet_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/Camera Reset/Camera Reset" to="." method="_on_camera_reset_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/Seed/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/Seed/Export" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="imported" from="Import" to="." method="_on_import_imported"]

@@ -1,6 +1,7 @@
 extends Control
 
 @onready var label_lock = Global.label_lock
+@onready var cust_seed = Global.cust_seed
 var system_mouse_enter = false
 var system_pressed
 
@@ -10,89 +11,6 @@ func _process(delta):
 	if system_mouse_enter == true:
 		get_node("../Tooltips/System Tooltip").global_position = Vector2(get_global_mouse_position().x - (get_node("../Tooltips/System Tooltip").get_size().x/cam_zoom.x)/2, get_global_mouse_position().y - (get_node("../Tooltips/System Tooltip").get_size()/cam_zoom.y).y)
 
-# Show Sol
-func _on_sol_mouse_entered():
-	get_node("../Tooltips/System Tooltip").text = "[center]Sol[/center]"
-	get_node("../Tooltips/System Tooltip").show()
-	system_mouse_enter = true
-func _on_sol_mouse_exited():
-	get_node("../Tooltips/System Tooltip").hide()
-	system_mouse_enter = false
-func _on_sol_pressed():
-	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Sol")
-	if system_pressed.is_visible() == false:
-		label_lock = false
-	show_descriptions()
-
-# Show Miciri
-func _on_miciri_mouse_entered():
-	get_node("../Tooltips/System Tooltip").text = "[center]Miciri[/center]"
-	get_node("../Tooltips/System Tooltip").show()
-	system_mouse_enter = true
-func _on_miciri_mouse_exited():
-	get_node("../Tooltips/System Tooltip").hide()
-	system_mouse_enter = false
-func _on_miciri_pressed():
-	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Miciri")
-	if system_pressed.is_visible() == false:
-		label_lock = false
-	show_descriptions()
-
-# Show Kaikai
-func _on_kaukai_mouse_entered():
-	get_node("../Tooltips/System Tooltip").text = "[center]Kaukai[/center]"
-	get_node("../Tooltips/System Tooltip").show()
-	system_mouse_enter = true
-func _on_kaukai_mouse_exited():
-	get_node("../Tooltips/System Tooltip").hide()
-	system_mouse_enter = false
-func _on_kaukai_pressed():
-	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Kaukai")
-	if system_pressed.is_visible() == false:
-		label_lock = false
-	show_descriptions()
-
-# Show Utoths
-func _on_utoths_mouse_entered():
-	get_node("../Tooltips/System Tooltip").text = "[center]Utoths[/center]"
-	get_node("../Tooltips/System Tooltip").show()
-	system_mouse_enter = true
-func _on_utoths_mouse_exited():
-	get_node("../Tooltips/System Tooltip").hide()
-	system_mouse_enter = false
-func _on_utoths_pressed():
-	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Utoths")
-	if system_pressed.is_visible() == false:
-		label_lock = false
-	show_descriptions()
-
-# Show Shin'ta Homeworld
-func _on_shinta_homeworld_mouse_entered():
-	get_node("../Tooltips/System Tooltip").text = "[center]Shin'ta Homeworld[/center]"
-	get_node("../Tooltips/System Tooltip").show()
-	system_mouse_enter = true
-func _on_shinta_homeworld_mouse_exited():
-	get_node("../Tooltips/System Tooltip").hide()
-	system_mouse_enter = false
-func _on_shinta_homeworld_pressed():
-	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Shin'ta Homeworld")
-	if system_pressed.is_visible() == false:
-		label_lock = false
-	show_descriptions()
-
-# Show Vorma Homeworld
-func _on_vorma_homeworld_mouse_entered():
-	get_node("../Tooltips/System Tooltip").text = "[center]Vorma Homeworld[/center]"
-	get_node("../Tooltips/System Tooltip").show()
-	system_mouse_enter = true
-func _on_vorma_homeworld_mouse_exited():
-	get_node("../Tooltips/System Tooltip").hide()
-	system_mouse_enter = false
-func _on_vorma_homeworld_pressed():
-	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Vorma Homeworld")
-	if system_pressed.is_visible() == false:
-		label_lock = false
-	show_descriptions()
 
 # Hide Descriptions
 func hide_descriptions():
@@ -110,3 +28,55 @@ func show_descriptions():
 	else:
 		label_lock = false
 		get_node("../CanvasLayer/Sidebar").hide()
+
+
+# System Pressed
+func _on_sol_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Sol")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	show_descriptions()
+
+func _on_miciri_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Miciri")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	Global.cust_seed = ["Sun", 6865000, 0, 0, 28.646, 5, "Miciri", "Vector4(1, 0.745098, 0, 1)", "Vector4(1, 0.745098, 0, 1)", "Planet", 5922.7, 702.76, 0.11806375442739, 4.662, 1, "Miciri I", "Vector4(1, 1, 1, 1)", 0, "Planet", 5730.29, 1166.3, 0.05560498220641, 5.023, 0, "Miciri II", "Vector4(1, 1, 1, 1)", 0, "Planet", 5375.39, 1500.1, 0.03764351590439, 3.827, 0, "Miciri III", "Vector4(1, 1, 1, 1)", 0, "Planet", 9574.54, 2612.2, 0.01645196847803, 22.004, 0, "Miciri IV", "Vector4(1, 1, 1, 1)", 0]
+	show_descriptions()
+
+func _on_kaukai_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Kaukai")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	Global.cust_seed = []
+	show_descriptions()
+
+func _on_utoths_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Utoths")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	show_descriptions()
+
+func _on_shinta_homeworld_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Shin'ta Homeworld")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	show_descriptions()
+
+func _on_vorma_homeworld_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Vorma Homeworld")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	show_descriptions()
+
+func _on_gullwing_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Gullwing")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	show_descriptions()
+
+func _on_ancient_homeworld_pressed():
+	system_pressed = get_node("../CanvasLayer/Sidebar/Descriptions/Systems/Ancient Homeworld")
+	if system_pressed.is_visible() == false:
+		label_lock = false
+	show_descriptions()

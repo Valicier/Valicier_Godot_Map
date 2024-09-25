@@ -8,6 +8,8 @@ var zoom_min = 1
 
 var dragging = false
 
+signal zooming
+
 # Zoom
 func _process(delta):
 	# Zoom
@@ -16,11 +18,13 @@ func _process(delta):
 			zoom = zoom + Vector2(zoom_speed_fast, zoom_speed_fast)
 		else:
 			zoom = zoom + Vector2(zoom_speed, zoom_speed)
+		emit_signal("zooming")
 	if Input.is_action_just_pressed("Zoom Out") and zoom > Vector2(zoom_min, zoom_min):
 		if Input.is_key_pressed(KEY_CTRL):
 			zoom = zoom - Vector2(zoom_speed_fast, zoom_speed_fast)
 		else:
 			zoom = zoom - Vector2(zoom_speed, zoom_speed)
+		emit_signal("zooming")
 	# Zoom Restriction
 	if zoom < Vector2(zoom_min, zoom_min):
 		zoom = Vector2(zoom_min, zoom_min)

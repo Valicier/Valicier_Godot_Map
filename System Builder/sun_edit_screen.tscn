@@ -1,0 +1,425 @@
+[gd_scene load_steps=5 format=3 uid="uid://nl0ynqb356eg"]
+
+[ext_resource type="Script" path="res://System Builder/sun_edit_screen.gd" id="1_v7vxs"]
+[ext_resource type="Theme" uid="uid://cxyvdqfu2qibw" path="res://Labels/Label Theme.tres" id="2_bwayp"]
+[ext_resource type="Theme" uid="uid://bcxil0rsdixch" path="res://Labels/Builder Text Theme.tres" id="3_lrvsk"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7cu22"]
+color = Color(0, 0, 0, 0)
+
+[node name="Sun Edit Screen" type="Control" groups=["edit_screen"]]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+script = ExtResource("1_v7vxs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -665.0
+offset_right = 15.0
+offset_bottom = 500.0
+grow_horizontal = 0
+scale = Vector2(0.985854, 0.995257)
+color = Color(0.482353, 0.482353, 0.482353, 0.776471)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -665.0
+offset_bottom = 483.0
+grow_horizontal = 0
+
+[node name="Title" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Title LineEdit" type="LineEdit" parent="VBoxContainer/Title" groups=["line_edits"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_bwayp")
+placeholder_text = "[Sun Name]"
+expand_to_text_length = true
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/Title"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_7cu22")
+
+[node name="Button" type="Button" parent="VBoxContainer/Title"]
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+tooltip_text = "Close"
+theme = ExtResource("3_lrvsk")
+text = "X"
+
+[node name="Radius" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/Radius"]
+custom_minimum_size = Vector2(200, 23)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "Radius"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Edit" type="HBoxContainer" parent="VBoxContainer/Radius"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Radius LineEdit" type="LineEdit" parent="VBoxContainer/Radius/Edit" groups=["line_edits"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_lrvsk")
+placeholder_text = "[Enter Value]"
+expand_to_text_length = true
+
+[node name="Units" type="RichTextLabel" parent="VBoxContainer/Radius/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = " km"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Orbit" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/Orbit"]
+custom_minimum_size = Vector2(200, 23)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "Orbit Radius"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Edit" type="HBoxContainer" parent="VBoxContainer/Orbit"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Orbit LineEdit" type="LineEdit" parent="VBoxContainer/Orbit/Edit" groups=["line_edits"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_lrvsk")
+placeholder_text = "[Enter Value]"
+
+[node name="Multiplyer" type="RichTextLabel" parent="VBoxContainer/Orbit/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = " x10"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Superscript" type="RichTextLabel" parent="VBoxContainer/Orbit/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "6"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Units" type="RichTextLabel" parent="VBoxContainer/Orbit/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = " km"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Period" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/Period"]
+custom_minimum_size = Vector2(200, 23)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "Period"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Edit" type="HBoxContainer" parent="VBoxContainer/Period"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Period LineEdit" type="LineEdit" parent="VBoxContainer/Period/Edit" groups=["line_edits"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_lrvsk")
+placeholder_text = "[Enter Value]"
+
+[node name="Units" type="RichTextLabel" parent="VBoxContainer/Period/Edit"]
+layout_mode = 2
+tooltip_text = "Earth Standard Year"
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = " ESY"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Mass" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/Mass"]
+custom_minimum_size = Vector2(200, 23)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "Mass"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Edit" type="HBoxContainer" parent="VBoxContainer/Mass"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Mass LineEdit" type="LineEdit" parent="VBoxContainer/Mass/Edit" groups=["line_edits"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_lrvsk")
+placeholder_text = "[Enter Value]"
+expand_to_text_length = true
+
+[node name="Multiplyer" type="RichTextLabel" parent="VBoxContainer/Mass/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = " x10"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Superscript" type="RichTextLabel" parent="VBoxContainer/Mass/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "29"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Units" type="RichTextLabel" parent="VBoxContainer/Mass/Edit"]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = " km"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Planet Type" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/Planet Type"]
+custom_minimum_size = Vector2(200, 23)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "Sun Type"
+fit_content = true
+autowrap_mode = 0
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Planet Type"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_lrvsk")
+item_count = 6
+selected = 2
+popup/item_0/text = "Red"
+popup/item_0/id = 0
+popup/item_1/text = "Orange"
+popup/item_1/id = 1
+popup/item_2/text = "Yellow"
+popup/item_2/id = 2
+popup/item_3/text = "Blue"
+popup/item_3/id = 3
+popup/item_4/text = "White"
+popup/item_4/id = 4
+popup/item_5/text = "Custom"
+popup/item_5/id = 5
+
+[node name="CustomColor" type="VBoxContainer" parent="VBoxContainer/Planet Type"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Planet Type/CustomColor"]
+custom_minimum_size = Vector2(115, 23)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "[center]Custom Mesh Color[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Planet Type/CustomColor"]
+custom_minimum_size = Vector2(180, 20)
+layout_mode = 2
+
+[node name="R" type="HBoxContainer" parent="VBoxContainer/Planet Type/CustomColor"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Planet Type/CustomColor/R"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "R"
+fit_content = true
+autowrap_mode = 0
+
+[node name="R LineEdit" type="LineEdit" parent="VBoxContainer/Planet Type/CustomColor/R" groups=["line_edits"]]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+text = "255"
+placeholder_text = "[Red]"
+alignment = 2
+expand_to_text_length = true
+
+[node name="G" type="HBoxContainer" parent="VBoxContainer/Planet Type/CustomColor"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Planet Type/CustomColor/G"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "G"
+fit_content = true
+autowrap_mode = 0
+
+[node name="G LineEdit" type="LineEdit" parent="VBoxContainer/Planet Type/CustomColor/G" groups=["line_edits"]]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+text = "255"
+placeholder_text = "[Green]"
+alignment = 2
+expand_to_text_length = true
+
+[node name="B" type="HBoxContainer" parent="VBoxContainer/Planet Type/CustomColor"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Planet Type/CustomColor/B"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "B"
+fit_content = true
+autowrap_mode = 0
+
+[node name="B LineEdit" type="LineEdit" parent="VBoxContainer/Planet Type/CustomColor/B" groups=["line_edits"]]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+text = "255"
+placeholder_text = "[Blue]"
+alignment = 2
+expand_to_text_length = true
+
+[node name="A" type="HBoxContainer" parent="VBoxContainer/Planet Type/CustomColor"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Planet Type/CustomColor/A"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+bbcode_enabled = true
+text = "A"
+fit_content = true
+autowrap_mode = 0
+
+[node name="A LineEdit" type="LineEdit" parent="VBoxContainer/Planet Type/CustomColor/A" groups=["line_edits"]]
+layout_mode = 2
+theme = ExtResource("3_lrvsk")
+text = "255"
+placeholder_text = "[Alpha]"
+alignment = 2
+expand_to_text_length = true
+
+[node name="Button" type="Button" parent="VBoxContainer/Planet Type/CustomColor"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_lrvsk")
+text = "Light Color"
+
+[node name="Errors" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Invalid Radius" type="RichTextLabel" parent="VBoxContainer/Errors"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Invalid Radius[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Invalid Orbit" type="RichTextLabel" parent="VBoxContainer/Errors"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Invalid Orbit[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Invalid Period" type="RichTextLabel" parent="VBoxContainer/Errors"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Invalid Orbital Period[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Invalid Type" type="RichTextLabel" parent="VBoxContainer/Errors"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Invalid Type[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/Title/Title LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Title/Title LineEdit" to="." method="_on_title_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Title/Button" to="." method="_on_button_pressed"]
+[connection signal="gui_input" from="VBoxContainer/Radius/Edit/Radius LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Radius/Edit/Radius LineEdit" to="." method="_on_radius_line_edit_text_changed"]
+[connection signal="gui_input" from="VBoxContainer/Orbit/Edit/Orbit LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Orbit/Edit/Orbit LineEdit" to="." method="_on_orbit_line_edit_text_changed"]
+[connection signal="gui_input" from="VBoxContainer/Period/Edit/Period LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Period/Edit/Period LineEdit" to="." method="_on_period_line_edit_text_changed"]
+[connection signal="gui_input" from="VBoxContainer/Mass/Edit/Mass LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Mass/Edit/Mass LineEdit" to="." method="_on_mass_line_edit_text_changed"]
+[connection signal="item_selected" from="VBoxContainer/Planet Type/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="gui_input" from="VBoxContainer/Planet Type/CustomColor/R/R LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Planet Type/CustomColor/R/R LineEdit" to="." method="_on_r_line_edit_text_changed"]
+[connection signal="gui_input" from="VBoxContainer/Planet Type/CustomColor/G/G LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Planet Type/CustomColor/G/G LineEdit" to="." method="_on_g_line_edit_text_changed"]
+[connection signal="gui_input" from="VBoxContainer/Planet Type/CustomColor/B/B LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Planet Type/CustomColor/B/B LineEdit" to="." method="_on_b_line_edit_text_changed"]
+[connection signal="gui_input" from="VBoxContainer/Planet Type/CustomColor/A/A LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="VBoxContainer/Planet Type/CustomColor/A/A LineEdit" to="." method="_on_a_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Planet Type/CustomColor/Button" to="." method="_on_button_pressed"]
